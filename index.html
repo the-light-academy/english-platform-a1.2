@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>English Adventure — Learn English A1.2</title>
+<meta name="description" content="Interactive, game-based English A1.2 learning platform for kids." />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/games.css" />
+</head>
+<body>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-logo" aria-hidden="true">🇬🇧</span>
+      <span class="brand-name">English Adventure</span>
+    </div>
+    <div class="level-pill" aria-label="Current level">A1.2</div>
+    <div class="header-stats">
+      <span class="stat-chip" id="stat-points">⭐ 0</span>
+      <span class="stat-chip" id="stat-streak">🔥 0 days</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">English Adventure <span aria-hidden="true">🇬🇧</span></h1>
+      <p class="hero-subtitle">Learn English. Play. Remember.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" id="hero-continue" type="button">Continue Learning →</button>
+        <button class="btn btn-ghost btn-lg" id="hero-choose" type="button">Choose a Mission</button>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <span class="float-emoji e1">📚</span>
+      <span class="float-emoji e2">⭐</span>
+      <span class="float-emoji e3">🎯</span>
+      <span class="float-emoji e4">🏆</span>
+      <span class="hero-orb"></span>
+    </div>
+  </section>
+
+  <!-- ============================== PROGRESS ============================== -->
+  <section class="progress-section" aria-labelledby="progress-heading">
+    <div class="section-inner">
+      <h2 id="progress-heading" class="section-title">Your Progress</h2>
+      <div class="progress-card">
+        <div class="progress-card-top">
+          <span class="level-badge" id="stat-level">Level 1</span>
+          <span class="progress-percent" id="level-progress-label">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="level-progress-bar" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== LEARNING MAP ============================== -->
+  <section class="learning-map-section" id="learning-map-section" aria-labelledby="map-heading">
+    <div class="section-inner">
+      <h2 id="map-heading" class="section-title">Learning Map</h2>
+      <ol class="learning-map" id="learning-map"><!-- rendered by app.js --></ol>
+    </div>
+  </section>
+
+  <!-- ============================== LESSON CARDS ============================== -->
+  <section class="lessons-section" aria-labelledby="lessons-heading">
+    <div class="section-inner">
+      <h2 id="lessons-heading" class="section-title">Missions</h2>
+      <div class="lesson-cards-grid" id="lesson-cards"><!-- rendered by app.js --></div>
+    </div>
+  </section>
+
+  <!-- ============================== DAILY CHALLENGE ============================== -->
+  <section class="daily-challenge-section" aria-labelledby="daily-heading">
+    <div class="section-inner">
+      <div class="daily-challenge-card">
+        <div class="daily-challenge-text">
+          <h2 id="daily-heading" class="section-title">🎯 Today's Mission</h2>
+          <p id="daily-challenge-label">0 / 5 completed</p>
+          <div class="progress-track progress-track--sm">
+            <div class="progress-fill" id="daily-challenge-bar" style="width:0%"></div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" id="daily-challenge-btn" type="button">START</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== GAME OVERLAY ============================== -->
+<div class="game-overlay" id="game-overlay" role="dialog" aria-modal="true" aria-label="Game">
+  <div id="game-container"><!-- games render themselves here via engine.js --></div>
+</div>
+
+<!-- Floating feedback bubble, positioned via CSS, used by GameSession.showFeedback -->
+<div id="feedback-popup" class="feedback-popup" aria-live="polite"></div>
+
+<!-- ============================== SCRIPTS ============================== -->
+<script src="js/data.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/games/flashcards.js"></script>
+<script src="js/games/toBe.js"></script>
+<script src="js/games/pastTense.js"></script>
+<script src="js/games/sentenceBuilder.js"></script>
+<script src="js/games/presentTense.js"></script>
+<script src="js/games/finalMission.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

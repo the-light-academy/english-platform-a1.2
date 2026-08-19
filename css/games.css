@@ -1,0 +1,188 @@
+/* ==========================================================================
+   GAMES.CSS
+   Game overlay, game UI chrome, flashcards, feedback popup, result screen,
+   coming-soon state, and all game-related animations.
+   ========================================================================== */
+
+/* ---- OVERLAY ---------------------------------------------------------------- */
+.game-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+  transition: opacity var(--transition-med), transform var(--transition-med);
+  overflow-y: auto;
+}
+.game-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+#game-container {
+  width: 100%;
+  max-width: 640px;
+  padding: var(--space-4);
+}
+
+/* ---- GAME HEADER (progress bar + exit) --------------------------------------- */
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.game-progress-track {
+  flex: 1;
+  height: 12px;
+  background: var(--color-locked);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.game-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  border-radius: var(--radius-pill);
+  transition: width 400ms ease;
+}
+.game-progress-label { font-weight: 700; font-size: 0.85rem; color: var(--color-text-muted); white-space: nowrap; }
+
+/* ---- FLASHCARD ------------------------------------------------------------------ */
+.game-stage { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
+.game-stage.shake { animation: shake 400ms ease; }
+
+.flashcard {
+  width: 100%;
+  max-width: 420px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  animation: cardIn 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.flashcard-icon { font-size: 3rem; margin-bottom: var(--space-2); }
+.flashcard-prompt { font-size: 1.8rem; font-weight: 800; color: var(--color-text); }
+.flashcard-hint { margin-top: var(--space-2); color: var(--color-text-muted); font-size: 0.9rem; }
+
+.options-grid {
+  width: 100%;
+  max-width: 420px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+.option-btn {
+  min-height: 56px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-locked);
+  background: var(--color-surface);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px;
+  transition: all var(--transition-fast);
+}
+.option-btn:hover:not(:disabled) { border-color: var(--color-primary); transform: translateY(-2px); }
+.option-btn.correct {
+  background: #dcf7ef;
+  border-color: var(--color-secondary);
+  color: #0a9c78;
+  animation: pop 320ms ease;
+}
+.option-btn.wrong {
+  background: #ffe3e9;
+  border-color: var(--color-danger);
+  color: #c62a48;
+}
+
+/* ---- FEEDBACK POPUP --------------------------------------------------------------- */
+.feedback-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  background: var(--color-text);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.4rem;
+  padding: 16px 32px;
+  border-radius: var(--radius-pill);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 200;
+  transition: all 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.feedback-popup.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.feedback-popup.correct { background: #0a9c78; }
+.feedback-popup.wrong { background: #c62a48; }
+
+/* ---- RESULT SCREEN ------------------------------------------------------------------ */
+.result-screen {
+  text-align: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-4);
+  box-shadow: var(--shadow-md);
+  animation: cardIn 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.result-emoji { font-size: 3.4rem; margin-bottom: var(--space-2); }
+.result-score { font-size: 1.3rem; font-weight: 700; color: var(--color-text-muted); }
+.result-stat {
+  display: inline-block;
+  margin: var(--space-3) 0;
+  background: #fff2df;
+  color: #b8720a;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  animation: pop 500ms ease;
+}
+.result-mastery { margin: var(--space-4) auto; max-width: 320px; text-align: left; }
+.result-mastery span { font-size: 0.85rem; font-weight: 700; color: var(--color-text-muted); }
+.result-actions { display: flex; gap: var(--space-3); justify-content: center; margin-top: var(--space-4); flex-wrap: wrap; }
+
+/* ---- COMING SOON ---------------------------------------------------------------------- */
+.coming-soon { text-align: center; padding: var(--space-6) var(--space-4); }
+.coming-soon-icon { font-size: 3rem; margin-bottom: var(--space-3); }
+.coming-soon p { color: var(--color-text-muted); margin-bottom: var(--space-4); }
+
+/* ---- ANIMATIONS ------------------------------------------------------------------------- */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes pop {
+  0% { transform: scale(0.9); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+/* ---- RESPONSIVE ------------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .options-grid { grid-template-columns: 1fr; }
+  .flashcard-prompt { font-size: 1.5rem; }
+  .result-actions { flex-direction: column; }
+  .result-actions .btn { width: 100%; }
+}
