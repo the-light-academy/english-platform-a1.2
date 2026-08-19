@@ -105,15 +105,31 @@ const verbs = [
   { id: "g15", base: "run",     past: "ran",         bulgarian: "тичам",        icon: "🏃" },
 ];
 
-/* ---- TO BE (I am / You are / He is ...) ---------------------------------- */
+/* ---- TO BE (I am / You are / He is ...) — car / animal / travel themed ----
+Used by: To Be game (js/games/toBe.js)
+Each item is one gap-fill round: sentence has a single "___" blank where
+the correct form of "to be" (am/is/are) goes. Mixes the 7 core pronouns
+with themed noun subjects so the drill stays grammar-accurate but on-topic
+for Georgi (cars, animals, travel).
+--------------------------------------------------------------------------- */
 const toBe = [
-  { id: "b1", subject: "I",    verb: "am" },
-  { id: "b2", subject: "You",  verb: "are" },
-  { id: "b3", subject: "He",   verb: "is" },
-  { id: "b4", subject: "She",  verb: "is" },
-  { id: "b5", subject: "It",   verb: "is" },
-  { id: "b6", subject: "We",   verb: "are" },
-  { id: "b7", subject: "They", verb: "are" },
+  // ---- CORE PRONOUNS ----
+  { id: "b1", subject: "I",    verb: "am",  sentence: "I ___ tired after the long drive.",      bulgarian: "Аз съм уморен след дългото шофиране.", icon: "🚗" },
+  { id: "b2", subject: "You",  verb: "are", sentence: "You ___ a good driver.",                  bulgarian: "Ти си добър шофьор.",                   icon: "🧑‍✈️" },
+  { id: "b3", subject: "He",   verb: "is",  sentence: "He ___ at the airport now.",               bulgarian: "Той е на летището сега.",               icon: "🛫" },
+  { id: "b4", subject: "She",  verb: "is",  sentence: "She ___ excited about the trip.",          bulgarian: "Тя е развълнувана от пътуването.",      icon: "🧳" },
+  { id: "b5", subject: "It",   verb: "is",  sentence: "It ___ a fast car.",                       bulgarian: "Това е бърза кола.",                    icon: "🏎️" },
+  { id: "b6", subject: "We",   verb: "are", sentence: "We ___ on holiday in the mountains.",      bulgarian: "Ние сме на почивка в планината.",       icon: "⛰️" },
+  { id: "b7", subject: "They", verb: "are", sentence: "They ___ tourists from Bulgaria.",         bulgarian: "Те са туристи от България.",             icon: "🧑‍🤝‍🧑" },
+
+  // ---- THEMED NOUN SUBJECTS ----
+  { id: "b8",  subject: "The car",       verb: "is",  sentence: "The car ___ parked in the garage.",   bulgarian: "Колата е паркирана в гаража.",        icon: "🅿️" },
+  { id: "b9",  subject: "The dogs",      verb: "are", sentence: "The dogs ___ very friendly.",          bulgarian: "Кучетата са много дружелюбни.",       icon: "🐶" },
+  { id: "b10", subject: "The lion",      verb: "is",  sentence: "The lion ___ the king of the jungle.", bulgarian: "Лъвът е царят на джунглата.",         icon: "🦁" },
+  { id: "b11", subject: "My motorbike",  verb: "is",  sentence: "My motorbike ___ in the garage.",      bulgarian: "Моят мотор е в гаража.",               icon: "🏍️" },
+  { id: "b12", subject: "The animals",   verb: "are", sentence: "The animals ___ at the zoo.",          bulgarian: "Животните са в зоопарка.",            icon: "🦒" },
+  { id: "b13", subject: "The beach",     verb: "is",  sentence: "The beach ___ beautiful in summer.",   bulgarian: "Плажът е красив през лятото.",        icon: "🏖️" },
+  { id: "b14", subject: "The tickets",   verb: "are", sentence: "The tickets ___ in my suitcase.",      bulgarian: "Билетите са в куфара ми.",            icon: "🎫" },
 ];
 
 /* ---- SENTENCE BUILDER (word banks) — car / travel / animal themed -------- */
