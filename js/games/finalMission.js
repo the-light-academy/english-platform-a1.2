@@ -40,6 +40,7 @@ games.finalMission = {
           hint: direction === "en-bg" ? "What does this mean?" : "How do you say this in English?",
           correct: correctAnswer,
           options: shuffle([correctAnswer, ...distractors]),
+          speakText: word.english,
         };
       });
     }
@@ -55,6 +56,7 @@ games.finalMission = {
             hint: item.bulgarian,
             correct: item.verb,
             options: shuffle(["am", "is", "are"]),
+            speakText: item.sentence.replace("___", item.verb),
           };
         }
         if (kind === "present") {
@@ -66,6 +68,7 @@ games.finalMission = {
             hint: item.bulgarian,
             correct: item.correct,
             options: shuffle(item.options),
+            speakText: item.sentence.replace("___", item.correct),
           };
         }
         // kind === "past"
@@ -80,6 +83,7 @@ games.finalMission = {
           hint: `${item.base} → ${item.bulgarian}`,
           correct: item.past,
           options: shuffle([item.past, ...distractors]),
+          speakText: item.context.replace("___", item.past),
         };
       });
     }
@@ -90,6 +94,7 @@ games.finalMission = {
         id: item.id,
         words: item.words,
         translation: item.translation,
+        speakText: item.words.join(" "),
       }));
     }
 
@@ -170,6 +175,7 @@ games.finalMission = {
 
       const isCorrect = chosen === q.correct;
       button.classList.add(isCorrect ? "correct" : "wrong");
+      revealPronunciation(document.querySelector("#fm-stage .flashcard"), q.speakText);
 
       if (!isCorrect) {
         allButtons.forEach((b) => {
@@ -257,6 +263,7 @@ games.finalMission = {
         const isCorrect = builtSentence.join(" ") === q.words.join(" ");
 
         document.getElementById("fm-answer").classList.add(isCorrect ? "correct" : "wrong");
+        revealPronunciation(document.querySelector("#fm-stage .flashcard"), q.speakText);
         document.querySelectorAll("#fm-bank .word-chip, #fm-answer .word-chip").forEach((c) => (c.disabled = true));
         document.getElementById("fm-check").disabled = true;
         document.getElementById("fm-clear").disabled = true;

@@ -12,8 +12,8 @@ once the textbook is uploaded (see "CAMBRIDGE ONE MAPPING" note below).
 Used by: Flashcards game (and later: Detective, Final Mission)
 difficulty: 1 (easiest) -> 3 (hardest)
 categories: "vehicles", "animals", "travel", "people", "home", "feelings",
-"work", "time" — vehicles/animals/travel are weighted heavier
-on purpose (Georgi's interests), core categories kept for
+"work", "time", "colors", "weather" — vehicles/animals/travel are weighted
+heavier on purpose (Georgi's interests), core categories kept for
 grammar variety.
 --------------------------------------------------------------------------- */
 const vocabulary = [
@@ -84,6 +84,47 @@ const vocabulary = [
   { id: "v58", english: "happy",       bulgarian: "щастлив",        category: "feelings", difficulty: 2, icon: "😊" },
   { id: "v59", english: "tired",       bulgarian: "уморен",         category: "feelings", difficulty: 2, icon: "😴" },
   { id: "v60", english: "excited",     bulgarian: "развълнуван",    category: "feelings", difficulty: 3, icon: "🤩" },
+
+  // ---- MORE VEHICLES ----
+  { id: "v61", english: "helicopter",  bulgarian: "хеликоптер",     category: "vehicles", difficulty: 2, icon: "🚁" },
+  { id: "v62", english: "van",         bulgarian: "микробус",       category: "vehicles", difficulty: 2, icon: "🚐" },
+  { id: "v63", english: "scooter",     bulgarian: "скутер",         category: "vehicles", difficulty: 1, icon: "🛵" },
+  { id: "v64", english: "tractor",     bulgarian: "трактор",        category: "vehicles", difficulty: 2, icon: "🚜" },
+  { id: "v65", english: "ambulance",   bulgarian: "линейка",        category: "vehicles", difficulty: 2, icon: "🚑" },
+
+  // ---- MORE ANIMALS ----
+  { id: "v66", english: "crocodile",   bulgarian: "крокодил",       category: "animals", difficulty: 2, icon: "🐊" },
+  { id: "v67", english: "panda",       bulgarian: "панда",          category: "animals", difficulty: 1, icon: "🐼" },
+  { id: "v68", english: "kangaroo",    bulgarian: "кенгуру",        category: "animals", difficulty: 2, icon: "🦘" },
+  { id: "v69", english: "penguin",     bulgarian: "пингвин",        category: "animals", difficulty: 1, icon: "🐧" },
+  { id: "v70", english: "parrot",      bulgarian: "папагал",        category: "animals", difficulty: 2, icon: "🦜" },
+  { id: "v71", english: "frog",        bulgarian: "жаба",           category: "animals", difficulty: 1, icon: "🐸" },
+  { id: "v72", english: "mouse",       bulgarian: "мишка",          category: "animals", difficulty: 1, icon: "🐭" },
+  { id: "v73", english: "camel",       bulgarian: "камила",         category: "animals", difficulty: 2, icon: "🐫" },
+  { id: "v74", english: "cow",         bulgarian: "крава",          category: "animals", difficulty: 1, icon: "🐄" },
+  { id: "v75", english: "pig",         bulgarian: "прасе",          category: "animals", difficulty: 1, icon: "🐷" },
+
+  // ---- MORE TRAVEL ----
+  { id: "v76", english: "backpack",    bulgarian: "раница",         category: "travel", difficulty: 1, icon: "🎒" },
+  { id: "v77", english: "souvenir",    bulgarian: "сувенир",        category: "travel", difficulty: 2, icon: "🎁" },
+  { id: "v78", english: "guide",       bulgarian: "гид",            category: "travel", difficulty: 2, icon: "🧑‍🏫" },
+  { id: "v79", english: "island",      bulgarian: "остров",         category: "travel", difficulty: 1, icon: "🏝️" },
+  { id: "v80", english: "forest",      bulgarian: "гора",           category: "travel", difficulty: 1, icon: "🌲" },
+  { id: "v81", english: "lake",        bulgarian: "езеро",          category: "travel", difficulty: 2, icon: "🏞️" },
+  { id: "v82", english: "desert",      bulgarian: "пустиня",        category: "travel", difficulty: 2, icon: "🏜️" },
+  { id: "v83", english: "sea",         bulgarian: "море",           category: "travel", difficulty: 1, icon: "🌊" },
+
+  // ---- COLORS / WEATHER / TIME (core grammar-support) ----
+  { id: "v84", english: "red",         bulgarian: "червен",         category: "colors", difficulty: 1, icon: "🔴" },
+  { id: "v85", english: "blue",        bulgarian: "син",            category: "colors", difficulty: 1, icon: "🔵" },
+  { id: "v86", english: "green",       bulgarian: "зелен",          category: "colors", difficulty: 1, icon: "🟢" },
+  { id: "v87", english: "rain",        bulgarian: "дъжд",           category: "weather", difficulty: 1, icon: "🌧️" },
+  { id: "v88", english: "snow",        bulgarian: "сняг",           category: "weather", difficulty: 1, icon: "❄️" },
+  { id: "v89", english: "wind",        bulgarian: "вятър",          category: "weather", difficulty: 2, icon: "💨" },
+  { id: "v90", english: "cloud",       bulgarian: "облак",          category: "weather", difficulty: 1, icon: "☁️" },
+  { id: "v91", english: "morning",     bulgarian: "сутрин",         category: "time", difficulty: 1, icon: "🌅" },
+  { id: "v92", english: "evening",     bulgarian: "вечер",          category: "time", difficulty: 1, icon: "🌆" },
+  { id: "v93", english: "today",       bulgarian: "днес",           category: "time", difficulty: 2, icon: "📅" },
 ];
 
 /* ---- VERBS (for Past Tense game) — car / travel / animal themed ----------

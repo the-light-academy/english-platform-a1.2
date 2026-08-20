@@ -77,6 +77,7 @@ games.toBe = {
 
       const isCorrect = chosen === q.verb;
       button.classList.add(isCorrect ? "correct" : "wrong");
+      revealPronunciation(document.querySelector("#tb-stage .flashcard"), q.sentence.replace("___", q.verb));
 
       if (!isCorrect) {
         allButtons.forEach((b) => {

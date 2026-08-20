@@ -67,6 +67,7 @@
 .game-stage.shake { animation: shake 400ms ease; }
 
 .flashcard {
+  position: relative;
   width: 100%;
   max-width: 420px;
   background: var(--color-surface);
@@ -75,6 +76,14 @@
   padding: var(--space-6) var(--space-4);
   text-align: center;
   animation: cardIn 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.speak-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  animation: pop 320ms ease;
 }
 .flashcard-icon { font-size: 3rem; margin-bottom: var(--space-2); }
 .flashcard-prompt { font-size: 1.8rem; font-weight: 800; color: var(--color-text); }

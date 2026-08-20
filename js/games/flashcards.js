@@ -92,6 +92,7 @@ games.flashcards = {
 
       const isCorrect = chosen === q.correctAnswer;
       button.classList.add(isCorrect ? "correct" : "wrong");
+      revealPronunciation(document.querySelector("#fc-stage .flashcard"), q.word.english);
 
       if (!isCorrect) {
         allButtons.forEach((b) => {

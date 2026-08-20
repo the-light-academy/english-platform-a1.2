@@ -86,6 +86,7 @@ games.pastTense = {
 
       const isCorrect = chosen === q.verb.past;
       button.classList.add(isCorrect ? "correct" : "wrong");
+      revealPronunciation(document.querySelector("#pst-stage .flashcard"), q.verb.context.replace("___", q.verb.past));
 
       if (!isCorrect) {
         allButtons.forEach((b) => {

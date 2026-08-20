@@ -77,6 +77,7 @@ games.presentTense = {
 
       const isCorrect = chosen === q.correct;
       button.classList.add(isCorrect ? "correct" : "wrong");
+      revealPronunciation(document.querySelector("#pt-stage .flashcard"), q.sentence.replace("___", q.correct));
 
       if (!isCorrect) {
         allButtons.forEach((b) => {

@@ -166,6 +166,36 @@ function pickWeighted(items, count) {
   return picked;
 }
 
+/* Pronunciation via the browser's built-in speech synthesis (free, no
+   backend needed). Games call this AFTER an answer is revealed — never
+   before — so hearing the word never gives the answer away. */
+function speak(text) {
+  if (!text || !("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.9;
+  window.speechSynthesis.speak(utterance);
+}
+
+/* Speaks `text` once and attaches a small 🔊 replay button to `cardEl`
+   (a game's `.flashcard` element). Call this at the reveal moment only —
+   see the note on speak() above. */
+function revealPronunciation(cardEl, text) {
+  speak(text);
+  if (!cardEl || cardEl.querySelector(".speak-btn")) return;
+  const btn = document.createElement("button");
+  btn.className = "icon-btn speak-btn";
+  btn.type = "button";
+  btn.setAttribute("aria-label", "Play pronunciation");
+  btn.textContent = "🔊";
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    speak(text);
+  });
+  cardEl.appendChild(btn);
+}
+
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {

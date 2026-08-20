@@ -128,6 +128,7 @@ games.sentenceBuilder = {
       const isCorrect = builtSentence.join(" ") === q.words.join(" ");
 
       document.getElementById("sb-answer").classList.add(isCorrect ? "correct" : "wrong");
+      revealPronunciation(document.querySelector("#sb-stage .flashcard"), q.words.join(" "));
       document.querySelectorAll("#sb-bank .word-chip, #sb-answer .word-chip").forEach((c) => (c.disabled = true));
       document.getElementById("sb-check").disabled = true;
       document.getElementById("sb-clear").disabled = true;
