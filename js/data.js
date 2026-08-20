@@ -86,23 +86,47 @@ const vocabulary = [
   { id: "v60", english: "excited",     bulgarian: "развълнуван",    category: "feelings", difficulty: 3, icon: "🤩" },
 ];
 
-/* ---- VERBS (for Past Tense game) — car / travel / animal themed ---------- */
+/* ---- VERBS (for Past Tense game) — car / travel / animal themed ----------
+`context` is the gap-fill sentence the Past Tense game shows; the blank
+always takes the `past` form. --------------------------------------------- */
 const verbs = [
-  { id: "g1",  base: "drive",   past: "drove",    bulgarian: "карам (кола)", icon: "🚗" },
-  { id: "g2",  base: "fly",     past: "flew",      bulgarian: "летя",         icon: "✈️" },
-  { id: "g3",  base: "travel",  past: "traveled",  bulgarian: "пътувам",      icon: "🧳" },
-  { id: "g4",  base: "visit",   past: "visited",   bulgarian: "посещавам",    icon: "🏙️" },
-  { id: "g5",  base: "see",     past: "saw",        bulgarian: "виждам",       icon: "👀" },
-  { id: "g6",  base: "ride",    past: "rode",       bulgarian: "яздя / карам", icon: "🚲" },
-  { id: "g7",  base: "park",    past: "parked",     bulgarian: "паркирам",     icon: "🅿️" },
-  { id: "g8",  base: "buy",     past: "bought",     bulgarian: "купувам",      icon: "🛒" },
-  { id: "g9",  base: "stop",    past: "stopped",    bulgarian: "спирам",       icon: "🛑" },
-  { id: "g10", base: "walk",    past: "walked",     bulgarian: "разхождам",    icon: "🚶" },
-  { id: "g11", base: "feed",    past: "fed",         bulgarian: "храня",        icon: "🐾" },
-  { id: "g12", base: "pack",    past: "packed",     bulgarian: "стягам багаж", icon: "🎒" },
-  { id: "g13", base: "book",    past: "booked",     bulgarian: "резервирам",   icon: "🎫" },
-  { id: "g14", base: "explore", past: "explored",   bulgarian: "изследвам",    icon: "🧭" },
-  { id: "g15", base: "run",     past: "ran",         bulgarian: "тичам",        icon: "🏃" },
+  { id: "g1",  base: "drive",   past: "drove",     bulgarian: "карам (кола)", icon: "🚗", context: "Yesterday, I ___ my new car." },
+  { id: "g2",  base: "fly",     past: "flew",       bulgarian: "летя",         icon: "✈️", context: "Last year, we ___ to Spain." },
+  { id: "g3",  base: "travel",  past: "traveled",   bulgarian: "пътувам",      icon: "🧳", context: "They ___ around Europe last summer." },
+  { id: "g4",  base: "visit",   past: "visited",    bulgarian: "посещавам",    icon: "🏙️", context: "She ___ the zoo last weekend." },
+  { id: "g5",  base: "see",     past: "saw",         bulgarian: "виждам",       icon: "👀", context: "I ___ a lion at the safari park." },
+  { id: "g6",  base: "ride",    past: "rode",        bulgarian: "яздя / карам", icon: "🚲", context: "He ___ his bicycle to school yesterday." },
+  { id: "g7",  base: "park",    past: "parked",      bulgarian: "паркирам",     icon: "🅿️", context: "You ___ the car in the garage." },
+  { id: "g8",  base: "buy",     past: "bought",      bulgarian: "купувам",      icon: "🛒", context: "We ___ tickets for the trip." },
+  { id: "g9",  base: "stop",    past: "stopped",     bulgarian: "спирам",       icon: "🛑", context: "The bus ___ at the airport." },
+  { id: "g10", base: "walk",    past: "walked",      bulgarian: "разхождам",    icon: "🚶", context: "The dog ___ next to the river." },
+  { id: "g11", base: "feed",    past: "fed",          bulgarian: "храня",        icon: "🐾", context: "I ___ the animals at the farm." },
+  { id: "g12", base: "pack",    past: "packed",      bulgarian: "стягам багаж", icon: "🎒", context: "She ___ her suitcase last night." },
+  { id: "g13", base: "book",    past: "booked",      bulgarian: "резервирам",   icon: "🎫", context: "We ___ a hotel near the beach." },
+  { id: "g14", base: "explore", past: "explored",    bulgarian: "изследвам",    icon: "🧭", context: "They ___ the mountains on foot." },
+  { id: "g15", base: "run",     past: "ran",          bulgarian: "тичам",        icon: "🏃", context: "The horse ___ across the field." },
+];
+
+/* ---- PRESENT SIMPLE (he/she/it -s vs base form) — car / animal / travel
+themed. Used by: Present Tense game (js/games/presentTense.js)
+Each item stores its own 3 options (base / correct / distractor) so the
+game doesn't have to guess conjugation rules at runtime.
+--------------------------------------------------------------------------- */
+const presentSimple = [
+  { id: "p1",  subject: "He",         sentence: "He ___ to work every day.",         correct: "drives",  options: ["drive", "drives", "driving"],   bulgarian: "Той кара до работа всеки ден.",     icon: "🚗" },
+  { id: "p2",  subject: "She",        sentence: "She ___ to Spain every summer.",     correct: "flies",   options: ["fly", "flies", "flying"],        bulgarian: "Тя лети до Испания всяко лято.",     icon: "✈️" },
+  { id: "p3",  subject: "The dog",    sentence: "The dog ___ in the park.",           correct: "runs",    options: ["run", "runs", "running"],        bulgarian: "Кучето тича в парка.",               icon: "🐶" },
+  { id: "p4",  subject: "My car",     sentence: "My car ___ very fast.",              correct: "goes",    options: ["go", "goes", "going"],           bulgarian: "Моята кола върви много бързо.",      icon: "🏎️" },
+  { id: "p5",  subject: "He",         sentence: "He ___ a red motorbike.",            correct: "has",     options: ["have", "has", "having"],         bulgarian: "Той има червен мотор.",              icon: "🏍️" },
+  { id: "p6",  subject: "The lion",   sentence: "The lion ___ meat.",                 correct: "eats",    options: ["eat", "eats", "eating"],         bulgarian: "Лъвът яде месо.",                    icon: "🦁" },
+  { id: "p7",  subject: "I",          sentence: "I ___ to the mountains every weekend.", correct: "drive", options: ["drive", "drives", "driving"],   bulgarian: "Аз карам до планината всеки уикенд.", icon: "⛰️" },
+  { id: "p8",  subject: "We",         sentence: "We ___ to new countries every year.", correct: "travel", options: ["travel", "travels", "traveling"], bulgarian: "Ние пътуваме до нови държави всяка година.", icon: "🌍" },
+  { id: "p9",  subject: "They",       sentence: "They ___ the zoo on Sundays.",       correct: "visit",   options: ["visit", "visits", "visiting"],   bulgarian: "Те посещават зоопарка в неделя.",    icon: "🦒" },
+  { id: "p10", subject: "You",        sentence: "You ___ great photos on trips.",     correct: "take",    options: ["take", "takes", "taking"],       bulgarian: "Ти правиш страхотни снимки по пътуванията.", icon: "📸" },
+  { id: "p11", subject: "It",         sentence: "It ___ at every station.",           correct: "stops",   options: ["stop", "stops", "stopping"],     bulgarian: "То спира на всяка гара.",            icon: "🚆" },
+  { id: "p12", subject: "She",        sentence: "She ___ her car every Saturday.",    correct: "washes",  options: ["wash", "washes", "washing"],     bulgarian: "Тя мие колата си всяка събота.",     icon: "🧼" },
+  { id: "p13", subject: "My friends", sentence: "My friends ___ animals.",            correct: "love",    options: ["love", "loves", "loving"],       bulgarian: "Моите приятели обичат животните.",   icon: "🐾" },
+  { id: "p14", subject: "The plane",  sentence: "The plane ___ at six o'clock.",      correct: "leaves",  options: ["leave", "leaves", "leaving"],    bulgarian: "Самолетът тръгва в шест часа.",      icon: "🛫" },
 ];
 
 /* ---- TO BE (I am / You are / He is ...) — car / animal / travel themed ----

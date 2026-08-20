@@ -117,6 +117,51 @@
   color: #c62a48;
 }
 
+/* ---- SENTENCE BUILDER (word bank / answer strip) ------------------------------------ */
+.sentence-translation-hint {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.answer-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 480px;
+  min-height: 56px;
+  padding: var(--space-3);
+  border: 2px dashed var(--color-locked);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+.answer-strip.correct { border-style: solid; border-color: var(--color-secondary); background: #dcf7ef; }
+.answer-strip.wrong { border-style: solid; border-color: var(--color-danger); background: #ffe3e9; }
+.word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  min-height: 44px;
+}
+.word-chip {
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-locked);
+  background: var(--color-surface);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+.word-chip:hover:not(:disabled) { border-color: var(--color-primary); transform: translateY(-2px); }
+.word-chip:disabled { opacity: 0.3; }
+.answer-strip .word-chip { background: #eef0ff; border-color: var(--color-primary); }
+.sentence-builder-actions { display: flex; gap: var(--space-3); }
+
 /* ---- FEEDBACK POPUP --------------------------------------------------------------- */
 .feedback-popup {
   position: fixed;
