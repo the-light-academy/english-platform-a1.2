@@ -18,17 +18,17 @@ function renderLearningMap() {
   if (!mapEl) return;
 
   mapEl.innerHTML = "";
-  learningMap.forEach((lesson, index) => {
-    const status = getLessonStatus(lesson, index, learningMap);
+  learningMap.forEach((lesson) => {
+    const status = getLessonStatus(lesson);
 
     const node = document.createElement("li");
     node.className = `map-node map-node--${status}`;
 
-    const statusIcon = status === "completed" ? "🟢" : status === "current" ? "🟡" : "🔒";
-    const statusLabel = status === "completed" ? "Completed" : status === "current" ? "In Progress" : "Locked";
+    const statusIcon = status === "completed" ? "🟢" : "🟡";
+    const statusLabel = status === "completed" ? "Completed" : "Available";
 
     node.innerHTML = `
-      <button class="map-node-btn" type="button" ${status === "locked" ? "disabled" : ""}
+      <button class="map-node-btn" type="button"
         aria-label="${lesson.title}: ${statusLabel}">
         <span class="map-node-icon">${lesson.icon}</span>
         <span class="map-node-order">${lesson.order}</span>
@@ -40,9 +40,7 @@ function renderLearningMap() {
     `;
 
     const btn = node.querySelector(".map-node-btn");
-    if (status !== "locked") {
-      btn.addEventListener("click", () => startGame(lesson.gameKey, lesson.id));
-    }
+    btn.addEventListener("click", () => startGame(lesson.gameKey, lesson.id));
 
     mapEl.appendChild(node);
   });
@@ -54,8 +52,8 @@ function renderLessonCards() {
   if (!gridEl) return;
 
   gridEl.innerHTML = "";
-  learningMap.forEach((lesson, index) => {
-    const status = getLessonStatus(lesson, index, learningMap);
+  learningMap.forEach((lesson) => {
+    const status = getLessonStatus(lesson);
 
     const card = document.createElement("article");
     card.className = "lesson-card";
@@ -66,19 +64,15 @@ function renderLessonCards() {
       <p class="lesson-card-desc">${lesson.description}</p>
       <div class="lesson-card-meta">
         <span class="badge badge-xp">⭐ +${lesson.xp} XP</span>
-        <span class="badge badge-status badge-status--${status}">${
-      status === "completed" ? "Completed" : status === "current" ? "Available" : "Locked"
-    }</span>
+        <span class="badge badge-status badge-status--${status}">${status === "completed" ? "Completed" : "Available"}</span>
       </div>
-      <button class="btn btn-primary lesson-card-btn" type="button" ${status === "locked" ? "disabled" : ""}>
+      <button class="btn btn-primary lesson-card-btn" type="button">
         ${status === "completed" ? "Play Again" : "START"}
       </button>
     `;
 
     const btn = card.querySelector(".lesson-card-btn");
-    if (status !== "locked") {
-      btn.addEventListener("click", () => startGame(lesson.gameKey, lesson.id));
-    }
+    btn.addEventListener("click", () => startGame(lesson.gameKey, lesson.id));
 
     gridEl.appendChild(card);
   });
@@ -91,8 +85,7 @@ function bindHeroButtons() {
 
   if (continueBtn) {
     continueBtn.addEventListener("click", () => {
-      const nextLesson =
-        learningMap.find((l, i) => getLessonStatus(l, i, learningMap) === "current") || learningMap[0];
+      const nextLesson = learningMap.find((l) => getLessonStatus(l) === "current") || learningMap[0];
       startGame(nextLesson.gameKey, nextLesson.id);
     });
   }

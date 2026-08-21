@@ -117,12 +117,10 @@ function isLessonCompleted(lessonId) {
   return studentProgress.completedLessons.includes(lessonId);
 }
 
-/* Lesson N is unlocked if lesson N-1 is completed (or it's the first one). */
-function getLessonStatus(lesson, index, allLessons) {
-  if (isLessonCompleted(lesson.id)) return "completed";
-  if (index === 0) return "current";
-  const prev = allLessons[index - 1];
-  return isLessonCompleted(prev.id) ? "current" : "locked";
+/* All missions are unlocked from the start — Georgi can play them in any
+   order he likes, not just in sequence. */
+function getLessonStatus(lesson) {
+  return isLessonCompleted(lesson.id) ? "completed" : "current";
 }
 
 /* ---- WORD-LEVEL MASTERY / REPETITION --------------------------------------
