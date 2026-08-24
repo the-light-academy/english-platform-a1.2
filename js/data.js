@@ -12,9 +12,9 @@ once the textbook is uploaded (see "CAMBRIDGE ONE MAPPING" note below).
 Used by: Flashcards game (and later: Detective, Final Mission)
 difficulty: 1 (easiest) -> 3 (hardest)
 categories: "vehicles", "animals", "travel", "people", "home", "feelings",
-"work", "time", "colors", "weather" — vehicles/animals/travel are weighted
-heavier on purpose (Georgi's interests), core categories kept for
-grammar variety.
+"work", "time", "colors", "weather", "shopping" — vehicles/animals/travel
+are weighted heavier on purpose (Georgi's interests), core categories
+kept for grammar variety. "shopping" aligns with Cambridge One Unit 7.
 --------------------------------------------------------------------------- */
 const vocabulary = [
   // ---- VEHICLES / CARS ----
@@ -125,6 +125,32 @@ const vocabulary = [
   { id: "v91", english: "morning",     bulgarian: "сутрин",         category: "time", difficulty: 1, icon: "🌅" },
   { id: "v92", english: "evening",     bulgarian: "вечер",          category: "time", difficulty: 1, icon: "🌆" },
   { id: "v93", english: "today",       bulgarian: "днес",           category: "time", difficulty: 2, icon: "📅" },
+
+  // ---- SHOPPING & FASHION (Cambridge One Unit 7 — original content, see mapping below) ----
+  { id: "v94",  english: "shop",          bulgarian: "магазин",           category: "shopping", difficulty: 1, icon: "🏬" },
+  { id: "v95",  english: "shopping",      bulgarian: "пазаруване",        category: "shopping", difficulty: 1, icon: "🛍️" },
+  { id: "v96",  english: "clothes",       bulgarian: "дрехи",             category: "shopping", difficulty: 1, icon: "👕" },
+  { id: "v97",  english: "shirt",         bulgarian: "риза",              category: "shopping", difficulty: 1, icon: "👔" },
+  { id: "v98",  english: "T-shirt",       bulgarian: "тениска",           category: "shopping", difficulty: 1, icon: "👕" },
+  { id: "v99",  english: "jeans",         bulgarian: "дънки",             category: "shopping", difficulty: 1, icon: "👖" },
+  { id: "v100", english: "jacket",        bulgarian: "яке",               category: "shopping", difficulty: 1, icon: "🧥" },
+  { id: "v101", english: "shoes",         bulgarian: "обувки",            category: "shopping", difficulty: 1, icon: "👞" },
+  { id: "v102", english: "boots",         bulgarian: "ботуши",            category: "shopping", difficulty: 2, icon: "🥾" },
+  { id: "v103", english: "hat",           bulgarian: "шапка",             category: "shopping", difficulty: 1, icon: "🧢" },
+  { id: "v104", english: "sunglasses",    bulgarian: "слънчеви очила",    category: "shopping", difficulty: 2, icon: "🕶️" },
+  { id: "v105", english: "dress",         bulgarian: "рокля",             category: "shopping", difficulty: 1, icon: "👗" },
+  { id: "v106", english: "size",          bulgarian: "размер",            category: "shopping", difficulty: 2, icon: "📏" },
+  { id: "v107", english: "price",         bulgarian: "цена",              category: "shopping", difficulty: 2, icon: "🏷️" },
+  { id: "v108", english: "expensive",     bulgarian: "скъп",              category: "shopping", difficulty: 2, icon: "💸" },
+  { id: "v109", english: "cheap",         bulgarian: "евтин",             category: "shopping", difficulty: 2, icon: "🪙" },
+  { id: "v110", english: "sale",          bulgarian: "разпродажба",       category: "shopping", difficulty: 2, icon: "🔖" },
+  { id: "v111", english: "receipt",       bulgarian: "касова бележка",    category: "shopping", difficulty: 3, icon: "🧾" },
+  { id: "v112", english: "cash",          bulgarian: "пари в брой",       category: "shopping", difficulty: 2, icon: "💵" },
+  { id: "v113", english: "credit card",   bulgarian: "кредитна карта",    category: "shopping", difficulty: 2, icon: "💳" },
+  { id: "v114", english: "try on",        bulgarian: "пробвам",           category: "shopping", difficulty: 2, icon: "🪞" },
+  { id: "v115", english: "pay",           bulgarian: "плащам",            category: "shopping", difficulty: 1, icon: "💰" },
+  { id: "v116", english: "customer",      bulgarian: "клиент",            category: "shopping", difficulty: 2, icon: "🙋" },
+  { id: "v117", english: "shop assistant", bulgarian: "продавач-консултант", category: "shopping", difficulty: 3, icon: "🧑‍💼" },
 ];
 
 /* ---- VERBS (for Past Tense game) — car / travel / animal themed ----------
@@ -195,6 +221,12 @@ const toBe = [
   { id: "b12", subject: "The animals",   verb: "are", sentence: "The animals ___ at the zoo.",          bulgarian: "Животните са в зоопарка.",            icon: "🦒" },
   { id: "b13", subject: "The beach",     verb: "is",  sentence: "The beach ___ beautiful in summer.",   bulgarian: "Плажът е красив през лятото.",        icon: "🏖️" },
   { id: "b14", subject: "The tickets",   verb: "are", sentence: "The tickets ___ in my suitcase.",      bulgarian: "Билетите са в куфара ми.",            icon: "🎫" },
+
+  // ---- SHOPPING & FASHION (this/that/these/those + is/are) ----
+  { id: "b15", subject: "This jacket",   verb: "is",  sentence: "This jacket ___ very warm.",           bulgarian: "Това яке е много топло.",             icon: "🧥" },
+  { id: "b16", subject: "These shoes",   verb: "are", sentence: "These shoes ___ brand new.",           bulgarian: "Тези обувки са чисто нови.",          icon: "👞" },
+  { id: "b17", subject: "That shirt",    verb: "is",  sentence: "That shirt ___ too expensive.",        bulgarian: "Тази риза е твърде скъпа.",           icon: "👔" },
+  { id: "b18", subject: "Those jeans",   verb: "are", sentence: "Those jeans ___ on sale today.",       bulgarian: "Тези дънки са на разпродажба днес.",  icon: "👖" },
 ];
 
 /* ---- SENTENCE BUILDER (word banks) — car / travel / animal themed -------- */
@@ -207,6 +239,12 @@ const sentences = [
   { id: "s6", words: ["My", "dog", "is", "very", "friendly"], translation: "Моето куче е много дружелюбно" },
   { id: "s7", words: ["The", "plane", "leaves", "at", "six"], translation: "Самолетът тръгва в шест" },
   { id: "s8", words: ["I", "want", "to", "buy", "a", "motorbike"], translation: "Искам да купя мотор" },
+
+  // ---- SHOPPING & FASHION ----
+  { id: "s9",  words: ["How", "much", "is", "this", "jacket"], translation: "Колко струва това яке" },
+  { id: "s10", words: ["Can", "I", "try", "on", "these", "shoes"], translation: "Може ли да пробвам тези обувки" },
+  { id: "s11", words: ["I", "want", "to", "pay", "by", "card"], translation: "Искам да платя с карта" },
+  { id: "s12", words: ["This", "shop", "has", "a", "big", "sale"], translation: "Този магазин има голяма разпродажба" },
 ];
 
 /* ---- LEARNING MAP DEFINITION ----------------------------------------------
@@ -223,12 +261,20 @@ const learningMap = [
 ];
 
 /* ---- CAMBRIDGE ONE MAPPING ------------------------------------------------
-Placeholder for future integration. Once the textbook file is uploaded,
-each Cambridge One unit's target vocabulary/grammar should be added here
-as its own entry, then merged into `vocabulary` / `learningMap` above so
-lesson order matches the book's unit order.
-Example shape (to be filled in):
+Tracks which app content lines up with each Cambridge One unit, so lesson
+order can eventually follow the book's unit order once the full textbook
+is uploaded. All linked vocab/grammar items below are original content
+written for this app (see the "SHOPPING & FASHION" blocks in `vocabulary`,
+`toBe`, and `sentences` above) — not copied from the book itself.
+--------------------------------------------------------------------------- */
 const cambridgeOneUnits = [
+  {
+    unit: 7,
+    title: "Shopping and Fashion",
+    grammarFocus: "this / that / these / those + to be",
+    vocabIds: ["v94", "v95", "v96", "v97", "v98", "v99", "v100", "v101", "v102", "v103", "v104", "v105", "v106", "v107", "v108", "v109", "v110", "v111", "v112", "v113", "v114", "v115", "v116", "v117"],
+    toBeIds: ["b15", "b16", "b17", "b18"],
+    sentenceIds: ["s9", "s10", "s11", "s12"],
+  },
   // { unit: 1, title: "...", grammarFocus: "...", vocabIds: ["v1","v16", ...] },
 ];
---------------------------------------------------------------------------- */
