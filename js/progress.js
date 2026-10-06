@@ -117,7 +117,7 @@ function isLessonCompleted(lessonId) {
   return studentProgress.completedLessons.includes(lessonId);
 }
 
-/* All missions are unlocked from the start — Georgi can play them in any
+/* All missions are unlocked from the start — Kali can play them in any
    order he likes, not just in sequence. */
 function getLessonStatus(lesson) {
   return isLessonCompleted(lesson.id) ? "completed" : "current";

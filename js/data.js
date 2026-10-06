@@ -3,7 +3,7 @@ DATA.JS
 All learning content lives here. Adding new content later means adding
 new objects to these arrays — no other file needs to change.
 
-PERSONALIZED FOR: Georgi (27) — interests: cars, animals, travel.
+PERSONALIZED FOR: Kali (27) — interests: cars, animals, travel.
 Level: A1.2, aligned to be extended with Cambridge One unit vocabulary
 once the textbook is uploaded (see "CAMBRIDGE ONE MAPPING" note below).
 ========================================================================== */
@@ -13,7 +13,7 @@ Used by: Flashcards game (and later: Detective, Final Mission)
 difficulty: 1 (easiest) -> 3 (hardest)
 categories: "vehicles", "animals", "travel", "people", "home", "feelings",
 "work", "time", "colors", "weather", "shopping" — vehicles/animals/travel
-are weighted heavier on purpose (Georgi's interests), core categories
+are weighted heavier on purpose (Kali's interests), core categories
 kept for grammar variety. "shopping" aligns with Cambridge One Unit 7.
 --------------------------------------------------------------------------- */
 const vocabulary = [
@@ -201,7 +201,7 @@ Used by: To Be game (js/games/toBe.js)
 Each item is one gap-fill round: sentence has a single "___" blank where
 the correct form of "to be" (am/is/are) goes. Mixes the 7 core pronouns
 with themed noun subjects so the drill stays grammar-accurate but on-topic
-for Georgi (cars, animals, travel).
+for Kali (cars, animals, travel).
 --------------------------------------------------------------------------- */
 const toBe = [
   // ---- CORE PRONOUNS ----
