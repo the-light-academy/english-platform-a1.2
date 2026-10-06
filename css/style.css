@@ -193,6 +193,7 @@ button:disabled { cursor: not-allowed; opacity: 0.55; }
 .e2 { top: 5%; right: 5%; animation-delay: 0.8s; }
 .e3 { bottom: 10%; left: 0; animation-delay: 1.6s; }
 .e4 { bottom: 0; right: 15%; animation-delay: 2.4s; }
+.e5 { top: 42%; left: -6%; animation-delay: 3.2s; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }

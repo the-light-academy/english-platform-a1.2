@@ -3,7 +3,7 @@ DATA.JS
 All learning content lives here. Adding new content later means adding
 new objects to these arrays — no other file needs to change.
 
-PERSONALIZED FOR: Kali (27) — interests: cars, animals, travel.
+PERSONALIZED FOR: Kali (27) — interests: cars, animals, travel, sweet cats, books.
 Level: A1.2, aligned to be extended with Cambridge One unit vocabulary
 once the textbook is uploaded (see "CAMBRIDGE ONE MAPPING" note below).
 ========================================================================== */
@@ -12,9 +12,10 @@ once the textbook is uploaded (see "CAMBRIDGE ONE MAPPING" note below).
 Used by: Flashcards game (and later: Detective, Final Mission)
 difficulty: 1 (easiest) -> 3 (hardest)
 categories: "vehicles", "animals", "travel", "people", "home", "feelings",
-"work", "time", "colors", "weather", "shopping" — vehicles/animals/travel
-are weighted heavier on purpose (Kali's interests), core categories
-kept for grammar variety. "shopping" aligns with Cambridge One Unit 7.
+"work", "time", "colors", "weather", "shopping", "hobbies" — vehicles/
+animals/travel/hobbies (books) are weighted heavier on purpose (Kali's
+interests: cars, animals/cats, travel, books), core categories kept for
+grammar variety. "shopping" aligns with Cambridge One Unit 7.
 --------------------------------------------------------------------------- */
 const vocabulary = [
   // ---- VEHICLES / CARS ----
@@ -151,6 +152,19 @@ const vocabulary = [
   { id: "v115", english: "pay",           bulgarian: "плащам",            category: "shopping", difficulty: 1, icon: "💰" },
   { id: "v116", english: "customer",      bulgarian: "клиент",            category: "shopping", difficulty: 2, icon: "🙋" },
   { id: "v117", english: "shop assistant", bulgarian: "продавач-консултант", category: "shopping", difficulty: 3, icon: "🧑‍💼" },
+
+  // ---- MORE CATS (Kali's interests) ----
+  { id: "v118", english: "kitten",     bulgarian: "коте",           category: "animals", difficulty: 1, icon: "🐈" },
+  { id: "v119", english: "pet",        bulgarian: "домашен любимец", category: "animals", difficulty: 2, icon: "🐾" },
+  { id: "v120", english: "cute",       bulgarian: "сладък",         category: "feelings", difficulty: 1, icon: "🥰" },
+
+  // ---- BOOKS / READING (Kali's interests) ----
+  { id: "v121", english: "book",       bulgarian: "книга",          category: "hobbies", difficulty: 1, icon: "📖" },
+  { id: "v122", english: "library",    bulgarian: "библиотека",     category: "hobbies", difficulty: 2, icon: "📚" },
+  { id: "v123", english: "story",      bulgarian: "разказ",         category: "hobbies", difficulty: 1, icon: "📜" },
+  { id: "v124", english: "page",       bulgarian: "страница",       category: "hobbies", difficulty: 1, icon: "📄" },
+  { id: "v125", english: "author",     bulgarian: "автор",          category: "hobbies", difficulty: 2, icon: "✍️" },
+  { id: "v126", english: "magazine",   bulgarian: "списание",       category: "hobbies", difficulty: 2, icon: "📰" },
 ];
 
 /* ---- VERBS (for Past Tense game) — car / travel / animal themed ----------
@@ -172,6 +186,7 @@ const verbs = [
   { id: "g13", base: "book",    past: "booked",      bulgarian: "резервирам",   icon: "🎫", context: "We ___ a hotel near the beach." },
   { id: "g14", base: "explore", past: "explored",    bulgarian: "изследвам",    icon: "🧭", context: "They ___ the mountains on foot." },
   { id: "g15", base: "run",     past: "ran",          bulgarian: "тичам",        icon: "🏃", context: "The horse ___ across the field." },
+  { id: "g16", base: "read",    past: "read",          bulgarian: "чета",         icon: "📖", context: "Last night, I ___ a good book." },
 ];
 
 /* ---- PRESENT SIMPLE (he/she/it -s vs base form) — car / animal / travel
@@ -227,6 +242,10 @@ const toBe = [
   { id: "b16", subject: "These shoes",   verb: "are", sentence: "These shoes ___ brand new.",           bulgarian: "Тези обувки са чисто нови.",          icon: "👞" },
   { id: "b17", subject: "That shirt",    verb: "is",  sentence: "That shirt ___ too expensive.",        bulgarian: "Тази риза е твърде скъпа.",           icon: "👔" },
   { id: "b18", subject: "Those jeans",   verb: "are", sentence: "Those jeans ___ on sale today.",       bulgarian: "Тези дънки са на разпродажба днес.",  icon: "👖" },
+
+  // ---- CATS & BOOKS ----
+  { id: "b19", subject: "My kitten",     verb: "is",  sentence: "My kitten ___ very cute.",             bulgarian: "Моето коте е много сладко.",          icon: "🐈" },
+  { id: "b20", subject: "These books",   verb: "are", sentence: "These books ___ mine.",                bulgarian: "Тези книги са мои.",                  icon: "📚" },
 ];
 
 /* ---- SENTENCE BUILDER (word banks) — car / travel / animal themed -------- */
@@ -245,6 +264,10 @@ const sentences = [
   { id: "s10", words: ["Can", "I", "try", "on", "these", "shoes"], translation: "Може ли да пробвам тези обувки" },
   { id: "s11", words: ["I", "want", "to", "pay", "by", "card"], translation: "Искам да платя с карта" },
   { id: "s12", words: ["This", "shop", "has", "a", "big", "sale"], translation: "Този магазин има голяма разпродажба" },
+
+  // ---- CATS & BOOKS ----
+  { id: "s13", words: ["I", "read", "a", "book", "every", "evening"], translation: "Чета книга всяка вечер" },
+  { id: "s14", words: ["My", "cat", "is", "very", "cute"], translation: "Моята котка е много сладка" },
 ];
 
 /* ---- LEARNING MAP DEFINITION ----------------------------------------------
